@@ -6,7 +6,7 @@ Küçük ajanslar ve serbest çalışanlar için: hedef firmanın **herkese aç�
 değer veren bir **ilk e-posta** ile **2 takip e-postası** yazar. Türkiye kurallarına göre madde numaralı bir
 **kontrol listesi** çıkarır. E-posta göndermez; taslakları siz kendi kutunuzdan tek tek gönderirsiniz.
 
-Redirhan Studio tarafından hazırlandı. Ücretsiz, MIT lisanslı.
+Redirhan Labs tarafından hazırlandı. Ücretsiz, MIT lisanslı.
 
 ## Ne üretir?
 
@@ -91,4 +91,4 @@ söyler. Hukuki görüş vermez.
 
 ## Lisans
 
-MIT © 2026 Redirhan Studio. Bu bir hukuki görüş değildir.
+MIT © 2026 Redirhan Labs. Bu bir hukuki görüş değildir.

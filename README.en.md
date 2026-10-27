@@ -6,7 +6,7 @@ For Turkish small agencies and freelancers. The skill reads a target business's 
 personalised, value-first **first email** plus **two follow-ups**, and an article-cited **compliance checklist** for
 Turkey. It never sends email: you send the drafts one by one from your own mailbox. Output is in Turkish.
 
-Made by Redirhan Studio. Free, MIT licensed.
+Made by Redirhan Labs. Free, MIT licensed.
 
 ## Output
 
@@ -78,4 +78,4 @@ It is not legal advice.
 
 ## Licence
 
-MIT © 2026 Redirhan Studio. Bu bir hukuki görüş değildir.
+MIT © 2026 Redirhan Labs. Bu bir hukuki görüş değildir.
