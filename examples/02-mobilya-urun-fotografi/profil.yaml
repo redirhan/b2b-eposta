@@ -1,0 +1,28 @@
+# Kurgusal şahıs işletmesi: ücretsiz posta adresi (UZMANA SOR) + İYS kontrolü yapılmamış (ENGEL).
+# Bu bir hukuki görüş değildir.
+firma: "Ladin Ahşap Mobilya (şahıs işletmesi)"
+firma_kisa: "Ladin Ahşap"
+alici_turu: esnaf
+tuzel_tur: sahis
+tur_kaniti: "Site iletişim sayfasında şahıs işletmesi olarak vergi dairesi bilgisi; Trendyol mağaza bilgisinde 'şahıs şirketi'"
+sektor: "el yapımı ahşap mobilya"
+sehir: "Bolu"
+web: "https://ladinahsap.example"
+eposta: "ladinahsap@outlook.example"
+eposta_kaynagi: "https://ladinahsap.example/iletisim"
+kaynak_turu: firma_sitesi
+kaynak_tarihi: "2026-10-27"
+hitap: ""
+gozlemler:
+  - metin: "Ceviz yemek masası ürün sayfasında 2 fotoğraf var, ikisi de atölyede, arka planda talaş görünüyor"
+    kaynak: "https://ladinahsap.example/urun/ceviz-yemek-masasi"
+kanca: "Ceviz yemek masanızın sayfasına baktım; işçilik çok iyi görünüyor ama iki fotoğraf da atölyede çekilmiş."
+firsat: ""
+ek_deger: ""
+hizmet:
+  sablon: urun-fotografi
+  teklif: "ceviz masanız için 1 beyaz fon ve 1 yemek odası örnek görseli"
+  konu_kisa: "masa fotoğrafı fikri"
+iys_kontrol:
+  sonuc: yapilmadi
+  tarih: ""

@@ -1,0 +1,41 @@
+{
+  "uyari": "Bu bir hukuki görüş değildir.",
+  "firma": "Kumsal Butik Otelcilik A.Ş.",
+  "alici_turu": "tacir",
+  "eposta": "satis@kumsalbutik.example",
+  "eposta_kaynagi": "https://kumsalbutik.example/iletisim",
+  "kaynak_turu": "firma_sitesi",
+  "kaynak_tarihi": "2026-10-27",
+  "tur_kaniti": "Site alt bilgisinde 'Kumsal Butik Otelcilik A.Ş.' ve MERSİS numarası",
+  "gozlem_kaynaklari": [
+    "https://kumsalbutik.example/odalar",
+    "https://kumsalbutik.example/duyurular"
+  ],
+  "iys_kontrol": {
+    "sonuc": "ret_yok",
+    "tarih": "2026-10-27"
+  },
+  "sablon": "video",
+  "olusturma": "2026-10-27",
+  "plan": [
+    {
+      "no": 1,
+      "tarih": "2026-10-28",
+      "konu": "Tanıtım: Kumsal Butik Otel için teras videosu fikri"
+    },
+    {
+      "no": 2,
+      "tarih": "2026-11-02",
+      "konu": "Re: Tanıtım: Kumsal Butik Otel için teras videosu fikri"
+    },
+    {
+      "no": 3,
+      "tarih": "2026-11-04",
+      "konu": "Re: Tanıtım: Kumsal Butik Otel için teras videosu fikri"
+    }
+  ],
+  "gonderim": [],
+  "yanit": null,
+  "ret": null,
+  "not": "Gönderdikçe tarihleri 'gonderim'e, yanıtı/ret'i ilgili alana yazın; 3 yıl saklayın (Yönetmelik m.13/2)."
+}

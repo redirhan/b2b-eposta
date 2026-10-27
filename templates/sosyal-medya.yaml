@@ -1,0 +1,26 @@
+# Şablon: sosyal medya yönetimi. Yer tutucular: {ad} {marka} {firma} {teklif} {sektor} {sehir}
+# Cümleler "ben" ağzıyla yazıldı; gonderen.yaml'da tanitim_cumlesi ile kendi cümlenizi verebilirsiniz.
+ad: sosyal-medya
+baslik: "Sosyal medya yönetimi"
+aciklama: "Instagram / TikTok içerik planı, reels, gönderi ve hikâye üretimi."
+placeholder: false
+tanitim:
+  - "Ben {ad}; {marka} adıyla küçük işletmelerin Instagram ve TikTok hesaplarını yönetiyorum."
+  - "{marka} adıyla işletmelerin sosyal medya içeriklerini planlayıp hazırlıyorum, ben {ad}."
+  - "Ben {ad}, {marka} adıyla yerel işletmelerin Instagram hesaplarına içerik üretiyorum."
+cta:
+  - "İsterseniz size özel {teklif} hazırlayıp göndereyim, uygun olur mu?"
+  - "{teklif} hazırlayıp bu hafta göndermemi ister misiniz?"
+  - "Hiçbir yükümlülük olmadan {teklif} hazırlayıp göndereyim mi?"
+konu:
+  - "{firma} için {konu_kisa}"
+konu_kisa_varsayilan: "Instagram fikri"
+ek_deger_varsayilan: "Örneğin haftalık tek bir sabit içerik (aynı gün, aynı saat) bile takipçinin hesabınızı hatırlamasını kolaylaştırır."
+teklif_ornekleri:
+  - "3 reel fikri"
+  - "bir haftalık içerik takvimi taslağı"
+  - "profilinize kısa bir geri bildirim notu"
+yasak_iddialar: [takipçi garantisi, takipçi artışı garantisi, viral garanti, keşfete çıkarma garantisi, satış garantisi, bot takipçi]
+notlar:
+  - "Takipçi, beğeni ya da satış rakamı vaat etmeyin; geçmiş işten rakam veriyorsanız müşteri izniyle ve doğru verin."
+  - "Firmanın gönderilerini örnek olarak yeniden paylaşmayın; yalnız onlara özel taslak gönderin."

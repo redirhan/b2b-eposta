@@ -1,0 +1,24 @@
+# Şablon: ürün fotoğrafı. Yer tutucular: {ad} {marka} {firma} {teklif} {sektor} {sehir}
+ad: urun-fotografi
+baslik: "Ürün fotoğrafı"
+aciklama: "E-ticaret için beyaz fon, yaşam alanı ve detay fotoğrafları; düzenleme ve dekupe."
+placeholder: false
+tanitim:
+  - "Ben {ad}; {marka} adıyla e-ticaret satıcıları için ürün fotoğrafı hazırlıyorum."
+  - "{marka} adıyla ürünlerin beyaz fon ve yaşam alanı fotoğraflarını hazırlıyorum, ben {ad}."
+  - "Ben {ad}, {marka} adıyla küçük markaların ürün görsellerini düzenliyorum."
+cta:
+  - "İsterseniz {teklif} hazırlayıp yalnız size göndereyim, uygun olur mu?"
+  - "{teklif} hazırlayıp göndermemi ister misiniz?"
+  - "Yükümlülük olmadan {teklif} hazırlayayım mı?"
+konu:
+  - "{firma} ürünleri için {konu_kisa}"
+konu_kisa_varsayilan: "fotoğraf fikri"
+ek_deger_varsayilan: "Örneğin ilk görselde ürünü düz fonda, ikincide kullanım ortamında göstermek, ürün sayfasında ne sattığınızı tek bakışta anlatır."
+teklif_ornekleri:
+  - "1 ürün için beyaz fon + 1 yaşam alanı örnek görseli"
+  - "ürün sayfanız için 3 maddelik görsel notu"
+yasak_iddialar: [satış garantisi, dönüşüm garantisi, iade oranını sıfırlar]
+notlar:
+  - "Firmanın ürün fotoğrafını düzenleyip örnek olarak kendi portfolyonuzda ya da sosyal medyada yayımlamayın; yalnız onlara özel gönderin."
+  - "Gerçek ürünü değiştiren düzenleme (renk, boyut, kusur gizleme) tüketiciyi yanıltabilir; örneklerde ürünü olduğu gibi gösterin."

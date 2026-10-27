@@ -1,0 +1,29 @@
+# Kurgusal firma. Bu bir hukuki görüş değildir.
+firma: "Kumsal Butik Otelcilik A.Ş."
+firma_kisa: "Kumsal Butik Otel"
+alici_turu: tacir
+tuzel_tur: anonim
+tur_kaniti: "Site alt bilgisinde 'Kumsal Butik Otelcilik A.Ş.' ve MERSİS numarası"
+sektor: "butik otel"
+sehir: "Ayvalık"
+web: "https://kumsalbutik.example"
+eposta: "satis@kumsalbutik.example"
+eposta_kaynagi: "https://kumsalbutik.example/iletisim"
+kaynak_turu: firma_sitesi
+kaynak_tarihi: "2026-10-27"
+hitap: ""
+gozlemler:
+  - metin: "Odalar sayfasında 12 odanın fotoğrafı var, deniz manzaralı teras yalnız bir fotoğrafta görünüyor"
+    kaynak: "https://kumsalbutik.example/odalar"
+  - metin: "Kış dönemi için hafta içi konaklama paketini duyurmuşlar"
+    kaynak: "https://kumsalbutik.example/duyurular"
+kanca: "Kış dönemi hafta içi paketinizi sitenizde gördüm; terastan deniz manzarası bu dönemin en güçlü kozu gibi duruyor."
+firsat: "Terası sabah ışığında gösteren 20 saniyelik bir video, paket duyurusunu fotoğraftan çok daha iyi anlatabilir."
+ek_deger: "Örneğin aynı açıdan sabah, öğle ve gün batımında çekilmiş üç kısa planı arka arkaya koymak, ekstra ekipman gerektirmeden 'bir gün' videosu çıkarır."
+hizmet:
+  sablon: video
+  teklif: "teras için 3 sahnelik bir çekim planı"
+  konu_kisa: "teras videosu fikri"
+iys_kontrol:
+  sonuc: ret_yok
+  tarih: "2026-10-27"

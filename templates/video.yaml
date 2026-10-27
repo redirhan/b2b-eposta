@@ -1,0 +1,25 @@
+# Şablon: video prodüksiyon / kurgu. Yer tutucular: {ad} {marka} {firma} {teklif} {sektor} {sehir}
+ad: video
+baslik: "Video çekim ve kurgu"
+aciklama: "Tanıtım videosu, reels kurgusu, ürün/mekân videosu."
+placeholder: false
+tanitim:
+  - "Ben {ad}; {marka} adıyla işletmeler için kısa tanıtım videoları çekip kurguluyorum."
+  - "{marka} adıyla işletmelerin telefonla çektiği görüntüleri kısa videolara dönüştürüyorum, ben {ad}."
+  - "Ben {ad}, {marka} adıyla mekân ve ürün videoları hazırlıyorum."
+cta:
+  - "İsterseniz {teklif} hazırlayıp göndereyim, uygun olur mu?"
+  - "{teklif} hazırlayıp göndermemi ister misiniz?"
+  - "Yükümlülük olmadan {teklif} hazırlayayım mı?"
+konu:
+  - "{firma} için {konu_kisa}"
+konu_kisa_varsayilan: "kısa video fikri"
+ek_deger_varsayilan: "Örneğin elinizdeki telefon görüntülerinden 15 saniyelik bir 'bir gün' videosu çıkarmak çoğu zaman yeni çekim gerektirmez."
+teklif_ornekleri:
+  - "15 saniyelik bir video taslağı için sahne listesi"
+  - "3 sahnelik çekim planı"
+  - "mevcut bir videonuz için kısa kurgu önerisi"
+yasak_iddialar: [viral garanti, izlenme garantisi, milyon izlenme, satış garantisi]
+notlar:
+  - "Firmanın kendi videosunu ya da görselini izinsiz kurgulayıp herhangi bir yerde yayımlamayın; örneği yalnız onlara özel gönderin."
+  - "Müzikli örneklerde lisanslı müzik kullanın."

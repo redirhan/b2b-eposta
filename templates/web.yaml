@@ -1,0 +1,25 @@
+# Şablon: web sitesi tasarımı. Yer tutucular: {ad} {marka} {firma} {teklif} {sektor} {sehir}
+ad: web
+baslik: "Web sitesi tasarımı"
+aciklama: "Kurumsal site, tek sayfalık site, mobil uyum, hız ve temel SEO düzeltmeleri."
+placeholder: false
+tanitim:
+  - "Ben {ad}; {marka} adıyla küçük işletmelere hızlı ve mobil uyumlu siteler yapıyorum."
+  - "{marka} adıyla işletmelerin web sitelerini yeniliyor ve hızlandırıyorum, ben {ad}."
+  - "Ben {ad}, {marka} adıyla işletmeler için tek sayfalık ve kurumsal siteler hazırlıyorum."
+cta:
+  - "İsterseniz {teklif} hazırlayıp göndereyim, uygun olur mu?"
+  - "{teklif} göndermemi ister misiniz?"
+  - "Yükümlülük olmadan {teklif} çıkarıp göndereyim mi?"
+konu:
+  - "{firma} sitesi için {konu_kisa}"
+konu_kisa_varsayilan: "kısa bir not"
+ek_deger_varsayilan: "Örneğin iletişim sayfasına tıklanabilir bir telefon ve yol tarifi bağlantısı eklemek, mobilde arama yapanlar için en hızlı kazançtır."
+teklif_ornekleri:
+  - "sitenizin mobil görünümü için 5 maddelik bir kontrol notu"
+  - "ana sayfanız için kısa bir yenileme taslağı"
+  - "hız ölçümü ve 3 düzeltme önerisi"
+yasak_iddialar: ["google'da 1. sıra", ilk sıra garantisi, seo garantisi, birinci sayfa garantisi, trafik garantisi]
+notlar:
+  - "Firmanın fotoğraf ve metinleriyle izinsiz demo site yayımlamayın; demo yalnız onlara özel, yayımda değil (ör. parola korumalı) olsun."
+  - "Sıralama garantisi vermeyin; arama motoru sıralaması sizin kontrolünüzde değildir."

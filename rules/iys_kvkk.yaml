@@ -1,0 +1,342 @@
+# B2B E-posta (İYS Uyumlu): kural dosyası
+# Bu bir hukuki görüş değildir.
+#
+# Her kural: id, baslik, kategori, aciklama (ne zaman, neden), duzeltme (ne yapılmalı),
+# kaynak ("KAYNAK_ID | madde"), gerekirse belirsizlik. Durumu scripts/eposta.py belirler:
+#   DUR        -> taslak yazılmaz (alıcı uygun değil, toplu/kişisel hedefleme, ret kaydı var)
+#   ENGEL      -> taslak yazılır ama bu madde çözülmeden GÖNDERİLMEZ
+#   UYARI      -> risk ya da iyi uygulama eksiği
+#   UZMANA_SOR -> hukuki değerlendirme gerekir
+#   MANUEL     -> gönderen kendisi yapmalı / işaretlemeli
+#   GECTI      -> otomatik kontrol geçti
+#   BILGI      -> bilgi
+# Kaynaklar çelişirse ya da belirsizse DAHA SIKI yorum kodlandı ve "belirsizlik" alanında yazıldı.
+
+surum: "1.0.0"
+kural_tarihi: "2026-10-27"
+uyari_metni: "Bu bir hukuki görüş değildir."
+
+politika:
+  gunluk_onerilen: 20        # elle gözden geçirilmiş e-posta / gün (bu skill'in sınırı)
+  gunluk_ust: 50             # bunun üstü toplu gönderim sayılır, skill yardım etmez
+  tek_seferde_profil: 20     # bir "yaz" çağrısında en fazla profil
+  isinma_gun: 14             # yeni gönderim kutusunu ısıtma süresi
+  takip_gunleri: [3, 7]      # ilk e-postadan sonra takip günleri (hafta sonuna denk gelirse pazartesi)
+  ilk_eposta_cumle: [3, 4]   # ilk e-posta gövdesi (selam, ret satırı, imza hariç)
+  takip_cumle: [2, 3]
+  ilk_eposta_kelime_ust: 90
+  takip_kelime_ust: 70
+  konu_karakter_ust: 60
+
+kaynaklar:
+  - id: K6563
+    belge: "6563 sayılı Elektronik Ticaretin Düzenlenmesi Hakkında Kanun (RG 05.11.2014, sayı 29166)"
+    url: https://www.mevzuat.gov.tr/MevzuatMetin/1.5.6563.htm
+    okunma: "2026-10-27"
+    not: "m.6 (onay; 6/2 esnaf ve tacir istisnası), m.7 (içerik, kimlik ve iletişim bilgisi), m.8 (ret hakkı, 3 iş günü), m.12 (idari para cezaları; tutarlar her yıl yeniden değerlenir)."
+  - id: YON
+    belge: "Ticari İletişim ve Ticari Elektronik İletiler Hakkında Yönetmelik (RG 15.07.2015, sayı 29417; RG 04.01.2020, sayı 30998 değişiklikleri işlenmiş metin)"
+    url: https://www.mevzuat.gov.tr/anasayfa/MevzuatFihristDetayIframe?MevzuatNo=20914&MevzuatTertip=5&MevzuatTur=7
+    okunma: "2026-10-27"
+    not: "m.4 (tanımlar; iş günü), m.5/2 (gönderen İYS kaydı), m.6/3 ve 6/6 (tacir/esnaf istisnası ve İYS ret kontrolü), m.8 (kimlik, iletişim bilgisi, konu satırında nitelik ibaresi), m.9 (ret imkânı her iletide, aynı kanaldan, ücretsiz; İYS'ye 3 iş günü), m.10 (3 iş günü içinde durdurma), m.13/2 (kayıtları 3 yıl saklama)."
+  - id: K6698
+    belge: "6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK)"
+    url: https://www.mevzuat.gov.tr/MevzuatMetin/1.5.6698.htm
+    okunma: "2026-10-27"
+    not: "m.4 (genel ilkeler; amaçla bağlantılı, sınırlı, ölçülü), m.5/2 (işleme şartları; d bendi alenileştirme), m.9 (yurt dışına aktarım), m.10 (aydınlatma yükümlülüğü), m.11 (ilgili kişinin hakları)."
+  - id: KVKK-861
+    belge: "KVK Kurulu 01.09.2022 tarihli ve 2022/861 sayılı karar özeti (arama motorundan bulunan iş e-postasına onaysız ticari ileti)"
+    url: https://www.kvkk.gov.tr/Icerik/7580/2022-861
+    okunma: "2026-10-27"
+    not: "Avukatlar ne esnaf ne tacir olduğundan 6563 m.6/2 istisnası uygulanmadı; iş e-postasının alenileştirilmesi pazarlama amacını kapsamaz; 150.000 TL idari para cezası."
+  - id: KVKK-ALEN
+    belge: "KVKK Alenileştirme Hakkında Kamuoyu Duyurusu"
+    url: https://www.kvkk.gov.tr/Icerik/6843/-ALENILESTIRME-HAKKINDA-KAMUOYU-DUYURUSU
+    okunma: "2026-10-27"
+    not: "Alenileştirilmiş veri yalnız alenileştirme amacıyla sınırlı işlenebilir; sosyal medyadan alınan e-posta/telefona reklam göndermek m.5/2-d kapsamında değerlendirilemez."
+  - id: TTK
+    belge: "6102 sayılı Türk Ticaret Kanunu m.16/1 (ticaret şirketleri tacir sayılır) ve 5362 sayılı Esnaf ve Sanatkârlar Meslek Kuruluşları Kanunu m.3 (esnaf tanımı)"
+    url: https://www.mevzuat.gov.tr/MevzuatMetin/1.5.6102.pdf
+    okunma: "2026-10-27"
+    not: "Limited ve anonim şirketler tacirdir. Şahıs işletmesinin tacir mi esnaf mı olduğu işletmenin büyüklüğüne bağlıdır; ikisi de 6563 m.6/2 kapsamındadır."
+  - id: SMMM
+    belge: "Serbest Muhasebeci Mali Müşavirlik ve Yeminli Mali Müşavirlik Mesleklerine İlişkin Haksız Rekabet ve Reklam Yasağı Yönetmeliği (RG 21.11.2007, sayı 26707)"
+    url: https://turmob.org.tr/Arsiv/FCKEditor/userfiles/file/3568YASAYONETMELIK7NISAN2025/13-SMMM-YMMHaks%C4%B1zRekabet.pdf
+    okunma: "2026-10-27"
+    not: "Yalnız var olduğu ve meslek mensuplarının iş elde etmek için reklamını sınırladığı doğrulandı; maddelerin güncel metni bu skill'de incelenmedi."
+  - id: GOOGLE
+    belge: "Google Workspace, Email sender guidelines (Gmail gönderen şartları)"
+    url: https://support.google.com/a/answer/81126?hl=en
+    okunma: "2026-10-27"
+    not: "Tüm gönderenler: SPF veya DKIM, geçerli ileri/geri DNS, TLS, spam oranı %0,3 altında (hedef %0,1). Günde 5.000+ gönderenler: SPF + DKIM + DMARC, From hizalaması, tek tıkla abonelikten çıkma."
+  - id: CEZA2026
+    belge: "6563 sayılı Kanun m.12 idari para cezalarının 2026 tutarları (ikincil kaynak: Moroğlu Arseven duyurusu)"
+    url: https://www.morogluarseven.com/tr/insights/yayinlar/6563-sayili-elektronik-ticaretin-duzenlenmesi-hakkinda-kanun-kapsaminda-2026-yilinda-uygulanacak-idari-para-cezalarina-iliskin-teblig-yayimlandi/
+    okunma: "2026-10-26"
+    not: "İkincil kaynak; Resmî Gazete'deki tebliğ metniyle karşılaştırılmadı."
+
+kurallar:
+  # ---------------- ALICI UYGUNLUĞU ----------------
+  - id: ALC-01
+    baslik: "Alıcı tacir ya da esnaf mı?"
+    kategori: alici
+    aciklama: "Onaysız ticari elektronik ileti yalnız esnaf ve tacirlere gönderilebilir. Limited/anonim şirket tacirdir; şahıs işletmesi esnaf ya da tacirdir. Tür bilinmiyorsa taslak yazılmaz."
+    duzeltme: "Firmanın sitesinde ticaret unvanı (Ltd. Şti., A.Ş.), MERSİS numarası ya da şahıs işletmesi bilgisini arayın ve profilde alici_turu alanını doldurun."
+    kaynak:
+      - "K6563 | m.6/2"
+      - "YON | m.6/3"
+      - "TTK | TTK m.16/1, 5362 m.3"
+  - id: ALC-02
+    baslik: "Serbest meslek sahibi değil (avukat, hekim, mali müşavir vb.)"
+    kategori: alici
+    aciklama: "Avukat, hekim, diş hekimi, veteriner hekim, eczacı, mali müşavir, noter gibi serbest meslek sahipleri esnaf ya da tacir değildir; onlara onaysız ticari ileti gönderilemez. Kurul, avukata gönderilen tanıtım e-postası için 150.000 TL ceza verdi."
+    duzeltme: "Bu alıcıya soğuk e-posta göndermeyin. Tanışıklık, etkinlik, açık bir 'bize yazın' çağrısı gibi onaylı kanalları kullanın."
+    belirsizlik: "Serbest meslek faaliyetini limited/anonim şirket olarak yürüten işletmeler (ör. sağlık merkezi Ltd. Şti.) tacirdir ama meslek kuralları ayrıca uygulanabilir; bu durumda UZMANA SOR."
+    kaynak:
+      - "KVKK-861 | 2022/861"
+      - "K6563 | m.6/1-2"
+  - id: ALC-03
+    baslik: "Tüketici ya da kişisel hedefleme yok"
+    kategori: alici
+    aciklama: "Bireylere (tüketicilere) önceden onay olmadan ticari ileti gönderilemez. Bu skill kişisel hedefleme için taslak yazmaz."
+    duzeltme: "Yalnız işletmelere, işletmenin yayımladığı iş iletişim adresine yazın."
+    kaynak:
+      - "K6563 | m.6/1"
+      - "YON | m.5/1, 5/3"
+  - id: ALC-04
+    baslik: "Toplu değil, firmaya özel"
+    kategori: alici
+    aciklama: "Her e-posta firmanın herkese açık sitesinden alınmış en az bir somut gözleme dayanmalı. Gözlemsiz, kopyala-yapıştır ya da günde 50'den fazla gönderim toplu gönderimdir; bu skill yardım etmez. Onaysız iletinin bir defada birden fazla kişiye gönderilmesi cezayı on katına kadar artırabilir."
+    duzeltme: "Günde en fazla 20 e-posta, her biri elle gözden geçirilmiş ve firmaya özel gözlemle."
+    kaynak:
+      - "K6563 | m.12/2"
+  # ---------------- İYS ----------------
+  - id: IYS-01
+    baslik: "Gönderen İYS'ye kayıtlı"
+    kategori: iys
+    aciklama: "Ticari elektronik ileti göndermek isteyen gerçek ve tüzel kişiler İYS'ye kaydolur."
+    duzeltme: "iys.org.tr üzerinden hizmet sağlayıcı olarak kaydolun (koşulları ve varsa ücretleri sitede kontrol edin); gonderen.yaml içinde iys_kayitli: true yapın."
+    kaynak:
+      - "YON | m.5/2"
+  - id: IYS-02
+    baslik: "Alıcı adresi İYS'ye kaydedildi ve ret kontrolü yapıldı"
+    kategori: iys
+    aciklama: "Tacir/esnaf istisnasıyla göndermeden önce alıcının e-posta adresi gönderen tarafından İYS'ye kaydedilir ve İYS'de ret hakkını kullanıp kullanmadığı kontrol edilir. Ret varsa onay alınmadan gönderilemez."
+    duzeltme: "Adresi İYS'ye tacir/esnaf alıcı olarak yükleyin, ret durumunu kontrol edin; profilde iys_kontrol.sonuc (ret_yok / ret_var) ve tarih alanlarını doldurun."
+    kaynak:
+      - "YON | m.6/3, 6/6"
+  - id: IYS-03
+    baslik: "Ret gelince 3 iş günü içinde durdurma"
+    kategori: iys
+    aciklama: "Ret talebi ulaştıktan sonra 3 iş günü içinde ileti göndermek durdurulur (iş günü: hafta sonu, ulusal bayram ve genel tatiller hariç)."
+    duzeltme: "RET yanıtı gelir gelmez takip e-postalarını iptal edin ve adresi kendi engel listenize ekleyin."
+    kaynak:
+      - "K6563 | m.8/3"
+      - "YON | m.10/1, m.4/1-i"
+  - id: IYS-04
+    baslik: "Ret bildirimini 3 iş günü içinde İYS'ye bildirme"
+    kategori: iys
+    aciklama: "Hizmet sağlayıcı kendisine iletilen ret bildirimlerini 3 iş günü içinde İYS'ye bildirir."
+    duzeltme: "E-postayla gelen RET yanıtını İYS'ye işleyin."
+    kaynak:
+      - "YON | m.9/6"
+  - id: IYS-05
+    baslik: "Kayıtları 3 yıl saklama"
+    kategori: iys
+    aciklama: "Ticari elektronik iletilere ilişkin kayıtlar kayıt tarihinden itibaren 3 yıl saklanır; şikâyette ispat yükü gönderendedir."
+    duzeltme: "kayit.json dosyasını (adresin kaynağı, tarih, İYS kontrolü, gönderim tarihleri, ret) 3 yıl saklayın."
+    kaynak:
+      - "YON | m.13/1-2"
+  # ---------------- İÇERİK ----------------
+  - id: ICR-01
+    baslik: "Gönderen kimliği: MERSİS + ticaret unvanı ya da ad soyad + VKN"
+    kategori: icerik
+    aciklama: "İletinin başlığında ya da içeriğinde tacirler için MERSİS numarası ve ticaret unvanı, esnaflar için adı soyadı ile T.C. kimlik veya vergi kimlik numarası yer alır."
+    duzeltme: "gonderen.yaml'da tacir için ticari_unvan + mersis, esnaf için ad + vkn doldurun; imza bloğuna otomatik eklenir. TCKN yerine VKN kullanın."
+    belirsizlik: "Serbest meslek erbabı gönderenler Yönetmelikte ayrıca sayılmamış; daha sıkı yorumla ad soyad + VKN yazılır."
+    kaynak:
+      - "YON | m.8/2"
+      - "K6563 | m.7/2"
+  - id: ICR-02
+    baslik: "Erişilebilir iletişim bilgisi"
+    kategori: icerik
+    aciklama: "İletide gönderenin erişilebilir iletişim bilgilerinden en az biri (e-posta adresi gibi) yer alır."
+    duzeltme: "İmza bloğunda gönderen e-posta adresi bulunmalı."
+    kaynak:
+      - "YON | m.8/5"
+      - "K6563 | m.7/2"
+  - id: ICR-03
+    baslik: "Konu satırında nitelik ibaresi"
+    kategori: icerik
+    aciklama: "İletinin niteliği içeriğinden açıkça anlaşılmıyorsa e-postada konu bölümünde 'tanıtım', 'kampanya', 'bilgilendirme' gibi bir ibare yer alır."
+    duzeltme: "Varsayılan olarak konu 'Tanıtım:' ile başlar. Kapatırsanız (konu_ibaresi: false) gövdenin açıkça bir hizmet teklifi olduğundan emin olun."
+    belirsizlik: "Açık bir hizmet teklifinin niteliği içerikten anlaşılır sayılabilir; daha sıkı yorum varsayılan yapıldı."
+    kaynak:
+      - "YON | m.8/6"
+  - id: ICR-04
+    baslik: "Her iletide kolay ve ücretsiz ret imkânı, aynı kanaldan"
+    kategori: icerik
+    aciklama: "Ret imkânı gönderilen her ticari elektronik iletide yer alır; e-postayla gönderilen iletinin reddi de e-postayla, kolay ve ücretsiz sağlanır."
+    duzeltme: "Her e-postada 'RET yazmanız yeterli' satırı bulunmalı; yanıtla reddetmek aynı kanal ve ücretsizdir."
+    kaynak:
+      - "K6563 | m.8/2"
+      - "YON | m.9/3, 9/4"
+  - id: ICR-05
+    baslik: "Promosyon yok (ya da şartları açık)"
+    kategori: icerik
+    aciklama: "İndirim, hediye, yarışma gibi promosyonlar iletide açıkça belirtilir; geçerlilik süresi ve şartlar bir URL ya da müşteri hizmetleri numarasıyla sunulur. İlk e-postada link olmadığı için promosyon koymayın."
+    duzeltme: "İndirim/hediye/kampanya ifadelerini ilk e-postadan çıkarın; yalnız ücretsiz örnek ya da fikir teklif edin."
+    kaynak:
+      - "YON | m.8/7, 8/8"
+  # ---------------- KVKK ----------------
+  - id: KVK-01
+    baslik: "Adres firmanın yayımladığı iş iletişim adresi"
+    kategori: kvkk
+    aciklama: "Yalnız firmanın kendi sitesinde, işletme profilinde ya da kurumsal hesabında iş iletişimi için yayımladığı adres kullanılır. Satın alınmış liste, tahmin edilmiş adres (ad.soyad@...), çalışanın kişisel hesabı ya da kişisel sosyal medya kullanılmaz. Alenileştirilmiş veri yalnız alenileştirme amacıyla işlenebilir."
+    duzeltme: "Profilde eposta_kaynagi (URL) ve kaynak_turu alanlarını doldurun. info@/iletisim@ gibi genel kurumsal adresleri tercih edin."
+    belirsizlik: "Tüzel kişinin genel kurumsal adresi kişisel veri sayılmaz. Şahıs işletmesinin ya da bir çalışanın adını taşıyan adres kişisel veridir; 6563 m.6/2'nin KVKK m.5/2-a 'kanunlarda açıkça öngörülme' dayanağı olup olmadığını Kurul açıkça söylemedi. Bu durumda UZMANA SOR."
+    kaynak:
+      - "K6698 | m.4, m.5/2"
+      - "KVKK-ALEN | duyuru"
+      - "KVKK-861 | 2022/861"
+  - id: KVK-02
+    baslik: "Kişisel cep telefonu ve gereksiz kişisel veri yok"
+    kategori: kvkk
+    aciklama: "Bu skill yalnız e-posta içindir. Profilde cep telefonu, kişisel adres, TCKN gibi veriler tutulmaz (ölçülülük, veri en aza indirme)."
+    duzeltme: "Profilden telefon ve kişisel verileri silin; yalnız firma adı, iş e-posta adresi, kaynağı ve tarihi kalsın."
+    kaynak:
+      - "K6698 | m.4/2"
+  - id: KVK-03
+    baslik: "Kısa aydınlatma"
+    kategori: kvkk
+    aciklama: "Kişisel veri elde edilirken veri sorumlusunun kimliği, amaç, toplama yöntemi ve hukuki sebep, aktarım ve ilgili kişinin hakları bildirilir. İlk e-postada linksiz kısa bir satır (adresi nereden aldık, ne için kullanıyoruz, silme talebi) yer alır; tam metin istenirse gönderilir."
+    duzeltme: "gonderen.yaml'da aydinlatma_metni_yeri doldurun (sitenizdeki KVKK sayfası); takip e-postalarında gösterilir."
+    kaynak:
+      - "K6698 | m.10, m.11"
+  - id: KVK-04
+    baslik: "Yurt dışındaki araçlar"
+    kategori: kvkk
+    aciklama: "Adresleri yurt dışında sunucusu olan CRM, ısınma ya da otomasyon servislerine yüklemek yurt dışına aktarım sayılabilir."
+    duzeltme: "Listeyi küçük ve yerel tutun; servis kullanacaksanız KVKK m.9 şartlarını bir uzmana sorun."
+    kaynak:
+      - "K6698 | m.9"
+  - id: KVK-05
+    baslik: "Kullanılmayan veriyi silme"
+    kategori: kvkk
+    aciklama: "Yanıt vermeyen ya da reddeden firmaların verisi amaç sona erince silinir; ret kaydı yalnız tekrar yazmamak için tutulur."
+    duzeltme: "3. e-postadan sonra yanıt yoksa profili arşivleyin ve gereksiz alanları silin; engel listesinde yalnız adres + ret tarihi kalsın."
+    kaynak:
+      - "K6698 | m.4/2-d, m.7"
+  # ---------------- TESLİMAT ----------------
+  - id: TES-01
+    baslik: "Ayrı gönderim alan adı"
+    kategori: teslimat
+    aciklama: "Soğuk e-postayı ana alan adınızdan değil, ayrı bir gönderim alan adından gönderin; ana alan adınızın itibarı korunur."
+    duzeltme: "ör. markaniz.com yerine markaniz-mail.com gibi bir alan adı; gonderen.yaml'da gonderim_domaini ve ana_domain."
+    kaynak:
+      - "GOOGLE | Requirements for all senders"
+  - id: TES-02
+    baslik: "SPF, DKIM, DMARC"
+    kategori: teslimat
+    aciklama: "Gmail tüm gönderenlerden SPF veya DKIM, günde 5.000+ gönderenlerden SPF + DKIM + DMARC ister. Az gönderen için de üçünü kurmak teslim oranını artırır."
+    duzeltme: "Alan adınızın DNS'ine SPF, DKIM ve DMARC (başlangıçta p=none) kayıtlarını ekleyin; teslimat bölümünü true yapın."
+    kaynak:
+      - "GOOGLE | Requirements for all senders / 5,000+"
+  - id: TES-03
+    baslik: "2 hafta ısınma"
+    kategori: teslimat
+    aciklama: "Yeni kutu ilk günden yüksek hacimle başlamaz. 2 hafta boyunca günde birkaç gerçek yazışmayla başlayıp yavaş artırın."
+    duzeltme: "teslimat.isinma_baslangic tarihini yazın; 14 gün dolmadan günde 5-10 e-postayı geçmeyin."
+  - id: TES-04
+    baslik: "Günde en fazla 20, elle gözden geçirilmiş"
+    kategori: teslimat
+    aciklama: "Düşük hacim hem teslim oranını hem kişiselleştirmeyi korur. 50'nin üstü bu skill için toplu gönderimdir."
+    duzeltme: "teslimat.gunluk_limit 20 ya da altı."
+    kaynak:
+      - "GOOGLE | spam rate"
+  - id: TES-05
+    baslik: "Link, izleme pikseli, ek yok; düz metin"
+    kategori: teslimat
+    aciklama: "İlk e-postada link, açılma/tıklama izlemesi ve ek olmaz. Düz metin, kişisel yazışma gibi."
+    duzeltme: "Linki, 'ekte' ifadesini ve görselleri çıkarın; örneği alıcı 'evet' deyince gönderin."
+  - id: TES-06
+    baslik: "Spam oranı takibi"
+    kategori: teslimat
+    aciklama: "Gmail Postmaster Tools'ta spam oranını %0,1'in altında tutun, %0,3'e asla ulaşmayın."
+    duzeltme: "Gönderim alan adınızı Postmaster Tools'a ekleyin; şikâyet artarsa durun."
+    kaynak:
+      - "GOOGLE | spam rate"
+  # ---------------- YAZIM ----------------
+  - id: YAZ-01
+    baslik: "Kısa: ilk e-posta 3-4 cümle, takipler 2-3 cümle"
+    kategori: yazim
+    aciklama: "Selam, ret satırı ve imza hariç gövde sayılır."
+    duzeltme: "Cümleleri birleştirmeyin; fazla cümleyi silin."
+  - id: YAZ-02
+    baslik: "Firmaya özel gözlem"
+    kategori: yazim
+    aciklama: "İlk cümle firmanın herkese açık sitesinden somut bir gözleme dayanır ve kaynağı profilde kayıtlıdır."
+    duzeltme: "profil.kanca alanını sitede gördüğünüz somut bir şeyle yazın; gozlemler listesine URL ekleyin."
+  - id: YAZ-03
+    baslik: "Önce değer, sonra soru"
+    kategori: yazim
+    aciklama: "İlk e-posta ücretsiz ve somut bir şey teklif eder (fikir, örnek, kısa analiz) ve izin isteyen bir soruyla biter. Toplantı dayatmaz."
+    duzeltme: "Son cümleyi '... göndereyim mi?' gibi bir soruyla bitirin; toplantı isteğini olumlu yanıttan sonraya bırakın."
+  - id: YAZ-04
+    baslik: "Abartı ve garanti yok"
+    kategori: yazim
+    aciklama: "'Garanti', '%100', 'viral', 'son şans' gibi ifadeler hem güveni hem teslim oranını düşürür; doğrulanamayan sonuç vaadi yanıltıcı olabilir."
+    duzeltme: "Somut ve doğrulanabilir kalın."
+  - id: YAZ-05
+    baslik: "Dürüst konu satırı ve sıra"
+    kategori: yazim
+    aciklama: "İlk e-postanın konusu 'Re:' ya da 'Ynt:' ile başlamaz (sahte yazışma izlenimi). En fazla 3 e-posta: gün 0, 3, 7. Yanıt gelirse (olumlu ya da olumsuz) sıra durur."
+    duzeltme: "Takip e-postalarını yanıt geldiğinde iptal edin; 3. e-postadan sonra yazmayın."
+  - id: HZM-01
+    baslik: "Hizmete özel uyarılar"
+    kategori: hizmet
+    aciklama: "Şablonun kendi uyarıları (yasak iddialar, meslek kuralları, görsel kullanım izni)."
+    duzeltme: "Şablon notlarını okuyun."
+  - id: CEZ-01
+    baslik: "Yaptırımlar (bilgi)"
+    kategori: bilgi
+    aciklama: "6563 m.12: onaysız ileti ve ret yükümlülüğüne aykırılık için idari para cezası; bir defada birden fazla kişiye onaysız ileti cezası on katına kadar artırılabilir. 2026 tutarları (ikincil kaynak): m.12/1-a 2.859-14.309 TL, m.12/1-c 5.723-42.930 TL. KVKK ihlali ayrıca cezalandırılır (ör. 2022/861'de 150.000 TL)."
+    duzeltme: "-"
+    kaynak:
+      - "K6563 | m.12"
+      - "CEZA2026 | 2026 tutarları"
+      - "KVKK-861 | 2022/861"
+
+sozluk:
+  # Alıcı adında / sektöründe geçerse serbest meslek şüphesi (küçük harf, Türkçe)
+  serbest_meslek:
+    - avukat
+    - hukuk bürosu
+    - avukatlık
+    - hekim
+    - doktor
+    - dr.
+    - diş hekimi
+    - diş kliniği
+    - veteriner
+    - eczane
+    - eczacı
+    - mali müşavir
+    - smmm
+    - ymm
+    - muhasebe bürosu
+    - noter
+    - psikolog
+    - diyetisyen
+    - fizyoterapist
+    - mimarlık bürosu
+  # Ücretsiz e-posta sağlayıcıları (alan adının ilk etiketi; "outlook.com.tr" -> outlook)
+  ucretsiz_posta: [gmail, googlemail, hotmail, outlook, live, msn, yahoo, ymail, yandex, icloud, mynet, aol, gmx, protonmail, proton, mail]
+  # Genel kurumsal adres kullanıcı adları
+  genel_kutu: [info, iletisim, bilgi, hello, merhaba, contact, satis, sales, destek, support, rezervasyon, siparis, ofis, office, kurumsal, pazarlama, marketing, muhasebe, basin, press]
+  # Kaynak olarak kabul edilmeyenler (eposta_kaynagi içinde geçerse DUR)
+  yasak_kaynak: [satın, satin al, liste satıcı, apollo, leadmesh, hunter.io, tahmin, linkedin.com/in, kazıma, scrape, veri tabanı satın, rocketreach, zoominfo]
+  spam_ifadeler: [garanti, garantili, "%100", yüzde yüz, acil, kaçırmayın, son şans, hemen tıklayın, tıklayın, bedava, inanılmaz, kazandınız, sınırlı süre, para kazan, viral olacak, mucize, rakipsiz]
+  toplanti_ifadeler: [toplantı, görüşme ayarla, 15 dakikalık, 15 dk, zoom, google meet, takvimime, randevu alalım]
+  promosyon_ifadeler: [indirim, hediye, kampanya, çekiliş, yarışma, kupon, "% indirim", fırsat]
+  ek_ifadeler: [ekte, ekteki, ek olarak gönderdiğim, ekli]

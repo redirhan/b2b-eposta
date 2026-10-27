@@ -1,0 +1,25 @@
+# Şablon: muhasebe danışmanlığı (YER TUTUCU). Yer tutucular: {ad} {marka} {firma} {teklif} {sektor} {sehir}
+# Bu şablon bilerek "placeholder: true" bırakıldı. Serbest muhasebeci mali müşavir (SMMM) ve yeminli mali
+# müşavirler (YMM) için meslek mevzuatında reklam ve iş elde etme sınırları vardır. Bu şablon yalnız mali
+# müşavir OLMAYAN gönderenler (ör. ön muhasebe yazılımı, fatura/e-arşiv kurulumu, finans operasyon desteği)
+# için bir iskelettir. Kullanmadan önce gonderen.yaml'da meslek_mevzuati_kontrol_edildi: true yapın.
+ad: muhasebe-danismanligi
+baslik: "Muhasebe danışmanlığı (yer tutucu)"
+aciklama: "Ön muhasebe, e-fatura/e-arşiv kurulumu, finans operasyon desteği. SMMM/YMM için değildir."
+placeholder: true
+tanitim:
+  - "Ben {ad}; {marka} adıyla küçük işletmelerin ön muhasebe ve e-fatura düzenini kuruyorum."
+  - "{marka} adıyla işletmelere ön muhasebe ve fatura süreçlerinde destek veriyorum, ben {ad}."
+cta:
+  - "İsterseniz {teklif} hazırlayıp göndereyim, uygun olur mu?"
+  - "{teklif} göndermemi ister misiniz?"
+konu:
+  - "{firma} için {konu_kisa}"
+konu_kisa_varsayilan: "ön muhasebe notu"
+ek_deger_varsayilan: "Örneğin gelen faturaları haftada bir aynı gün toplamak, ay sonu yoğunluğunu belirgin biçimde azaltır."
+teklif_ornekleri:
+  - "ön muhasebe düzeniniz için 5 maddelik bir kontrol listesi"
+yasak_iddialar: [vergi avantajı garantisi, vergi indirimi garantisi, cezasız, denetimsiz, vergi kaçır]
+notlar:
+  - "SMMM/YMM iseniz bu şablonu kullanmayın; meslek odanıza ya da bir hukukçuya danışın (Haksız Rekabet ve Reklam Yasağı Yönetmeliği)."
+  - "Vergi sonucu vaat etmeyin; mali müşavirlik kapsamındaki işleri (defter tutma, beyanname) ruhsatsız teklif etmeyin."

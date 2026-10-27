@@ -1,0 +1,23 @@
+# Kurgusal hukuk bürosu: serbest meslek -> DUR (KVK Kurulu 2022/861). Taslak yazılmaz.
+# Bu bir hukuki görüş değildir.
+firma: "Yıldız Hukuk Bürosu"
+firma_kisa: "Yıldız Hukuk"
+alici_turu: serbest_meslek
+tuzel_tur: diger
+tur_kaniti: "Sitede 'Av.' unvanlı iki avukat; avukatlık bürosu"
+sektor: "hukuk bürosu"
+sehir: "İzmir"
+web: "https://yildizhukuk.example"
+eposta: "info@yildizhukuk.example"
+eposta_kaynagi: "https://yildizhukuk.example/iletisim"
+kaynak_turu: firma_sitesi
+kaynak_tarihi: "2026-10-27"
+gozlemler:
+  - metin: "Site mobilde menü açılmıyor"
+    kaynak: "https://yildizhukuk.example"
+kanca: "Sitenizi telefondan açtığımda menünün açılmadığını fark ettim."
+hizmet:
+  sablon: web
+  teklif: "mobil görünüm için 5 maddelik bir kontrol notu"
+iys_kontrol:
+  sonuc: yapilmadi

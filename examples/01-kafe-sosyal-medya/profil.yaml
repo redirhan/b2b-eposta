@@ -1,0 +1,29 @@
+# Kurgusal firma. Bu bir hukuki görüş değildir.
+firma: "Fincan Altı Kahve Kavurma Ltd. Şti."
+firma_kisa: "Fincan Altı"
+alici_turu: tacir
+tuzel_tur: limited
+tur_kaniti: "Site alt bilgisinde 'Fincan Altı Kahve Kavurma Ltd. Şti.' unvanı ve MERSİS numarası"
+sektor: "kahve kavurma ve kafe"
+sehir: "Eskişehir"
+web: "https://fincanalti.example"
+eposta: "info@fincanalti.example"
+eposta_kaynagi: "https://fincanalti.example/iletisim"
+kaynak_turu: firma_sitesi
+kaynak_tarihi: "2026-10-27"
+hitap: "Merhaba Fincan Altı ekibi,"
+gozlemler:
+  - metin: "Her perşembe yeni kavrulan tek kökenli kahveyi blogda duyuruyorlar"
+    kaynak: "https://fincanalti.example/blog"
+  - metin: "Sitede kavurma makinesinin fotoğrafı var ama kavurma sürecini gösteren video yok"
+    kaynak: "https://fincanalti.example/hakkimizda"
+kanca: "Sitenizde her perşembe yeni kavrumunuzu duyurduğunuzu gördüm, kahveyi kendi makinenizde kavurmanız güzel bir hikâye."
+firsat: "Bu perşembe duyuruları, kavurma sesini ve çekirdeğin rengini gösteren kısa videolarla Instagram'da çok daha fazla kişiye ulaşabilir."
+ek_deger: "Örneğin 'çekirdekten fincana 15 saniye' gibi tek bir sabit video serisi, her perşembe yeni çekim yapmadan aynı kurguyla tekrar edilebilir."
+hizmet:
+  sablon: sosyal-medya
+  teklif: "perşembe kavrum günü için 3 kısa reel fikri"
+  konu_kisa: "3 reel fikri"
+iys_kontrol:
+  sonuc: ret_yok
+  tarih: "2026-10-27"

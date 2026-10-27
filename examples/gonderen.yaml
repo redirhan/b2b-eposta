@@ -1,0 +1,23 @@
+# Kurgusal gönderen (örnekler için). Bu bir hukuki görüş değildir.
+ad: "Deniz"
+ad_soyad: "Deniz Kaya"
+marka: "Kıyı Dijital"
+tur: tacir
+ticari_unvan: "Kıyı Dijital Medya Ltd. Şti."
+mersis: "0123000000000001"
+vkn: null
+eposta: "deniz@kiyidijital-posta.example"
+telefon: null
+tanitim_cumlesi: null
+aydinlatma_metni_yeri: "kiyidijital.example/kvkk"
+iys_kayitli: true
+konu_ibaresi: true
+meslek_mevzuati_kontrol_edildi: false
+teslimat:
+  gonderim_domaini: "kiyidijital-posta.example"
+  ana_domain: "kiyidijital.example"
+  spf: true
+  dkim: true
+  dmarc: true
+  isinma_baslangic: "2026-10-06"
+  gunluk_limit: 15

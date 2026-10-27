@@ -1,0 +1,3 @@
+# Zorunlu paket yok: Python 3.8+ standart kütüphanesi yeterli.
+# İsteğe bağlı
+PyYAML>=6.0      # yoksa dahili mini_yaml kullanılır
